@@ -1,0 +1,124 @@
+{
+    "id": 1,
+    "name": "LeaveWizard Ltd",
+    "email": "admin@leavewizard.com",
+    "leaveYearStartDate": "01/01/2021",
+    "workPattern" :{
+                    "id": 10,
+                    "name": "5 Days on 2 Off"
+                    },
+    "maxStaffOnLeave": 5,
+    "overtimeEnabled": true,
+    "locations": [
+    {
+    "id": 23,
+    "name": "Bangalore",
+    "city": "Bangalore",
+    "workPattern": null,
+    "maxStaffOnLeave": null,
+    "isActive": true,
+    "companyId": 1
+    },
+    {
+    "id": 24,
+    "name": "London",
+    "city": "London",
+    "workPattern": "5 Days on 2 Days Off",
+    "maxStaffOnLeave": null,
+    "isActive": true,
+    "companyId": 1
+    }
+    ],
+    "workgroups": [
+    {
+    "id": 35,
+    "name": "Development (Bangalore)",
+    "leader": {
+                "id": 5,
+                "name": "Henry Hughes"
+                },
+    "maxStaffOnLeave": null,
+    "isActive": true,
+    "locationId": 23
+    },
+    {
+    "id": 36,
+    "name": "Development (London)",
+    "leader": null,
+    "maxStaffOnLeave": 3,
+    "isActive": true,
+    "locationId": 24
+    },
+    {
+        "id": 37,
+        "name": "HR (London)",
+        "leader": null,
+        "maxStaffOnLeave": 3,
+        "isActive": true,
+        "locationId": 24
+        },
+    {
+    "id": 37,
+    "name": "HR (London)",
+    "locationId": 24
+    }
+    ],
+    "employees": [
+    {
+    "id": 3,
+    "firstName": "Marge",
+    "lastName": "Green",
+    "emailAddress": "marge.green@leavewizard.com",
+    "userName": "marge.green@leavewizard.com",
+    "role": "Administrator",
+    "workgroupId": 37,
+    "workgroupName": "HR (London)",
+    "leaveYearStartDate": "01/01/2021",
+    "employmentStartDate": "11/03/2019",
+    "bradfactor": 0,
+    "isActive": true
+    },
+    {
+    "id": 4,
+    "firstName": "Jeff",
+    "lastName": "Smith",
+    "emailAddress": "jeff.smith@leavewizard.com",
+    "userName": "jeff.smith@leavewizard.com",
+    "role": "Employee",
+    "workgroupId": 36,
+    "workgroupName": "Development (London)",
+    "leaveYearStartDate": "01/01/2021",
+    "employmentStartDate": "10/01/2020",
+    "bradfactor": 0,
+    "isActive": true
+    },
+    {
+    "id": 5,
+    "firstName": "Henry",
+    "lastName": "Hughes",
+    "emailAddress": "henry.hughes@leavewizard.com",
+    "userName": "henry.hughes@leavewizard.com",
+    "role": "Line Manager",
+    "workgroupId": 36,
+    "workgroupName": "Development (London)",
+    "leaveYearStartDate": "01/01/2021",
+    "employmentStartDate": "05/07/2020",
+    "bradfactor": 0,
+    "isActive": true
+    },
+    {
+    "id": 7,
+    "firstName": "Joe",
+    "lastName": "Bloggs",
+    "emailAddress": "joe.bloggs@leavewizard.com",
+    "userName": " joe.bloggs@leavewizard.com",
+    "role": "Employee",
+    "workgroupId": 36,
+    "workgroupName": "Development (Bangalore)",
+    "leaveYearStartDate": "01/01/2021",
+    "employmentStartDate": "05/07/2020",
+    "bradfactor": 0,
+    "isActive": false
+    }
+    ]
+}
