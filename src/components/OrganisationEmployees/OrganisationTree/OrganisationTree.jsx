@@ -30,21 +30,32 @@ export class OrganisationTree extends React.Component {
             ));
     }
 
+    resetFilters = () => 
+    {
+        this.props.resetFilterValues()
+        this.setState({selectedWorkgroupName: ''})
+    }
+
     render() {
 
         return (
             <div>
                 <h3 style={{ marginBottom: "2rem", color: "#00ABD4", cursor: "pointer" }}>
                     <Label
-                        onClick={() => {
-                            this.props.resetFilterValues()
-                            this.setState({selectedWorkgroupName: ''})
-                        }}
+                        onClick={this.resetFilters}
                         className="lw-bg-light-blue">
                         {this.props.name}
                     </Label>
                 </h3>
+
                 {this.tabs()}
+                <div>                <p
+                        style={{textAlign:"left"}}
+                        className="lw-light-blue company-detail-btn-text"
+                        onClick={this.resetFilters}
+                    >
+                        reset
+                    </p></div>
             </div>
         );
     }

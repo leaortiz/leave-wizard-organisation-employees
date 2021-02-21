@@ -16,8 +16,7 @@ export class LocationTab extends React.Component {
                 <Panel eventKey={this.props.eventKey}>
                     <Panel.Heading className="noselect tree-location">
                         <div>
-                            <Panel.Title style={{ display: "inline" }} toggle>{location.name} </Panel.Title>
-                            <p className="company-detail-btn-text lw-light-blue" style={{ display: "inline", float: "right", marginRight: "0.5rem" }}>detail</p>
+                            <Panel.Title style={{ display: "inline" }} toggle>{location.name} </Panel.Title>                            
                         </div>
                     </Panel.Heading>
                     <Workgroups
