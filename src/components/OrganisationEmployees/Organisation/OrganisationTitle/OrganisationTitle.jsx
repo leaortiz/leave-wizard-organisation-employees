@@ -2,7 +2,7 @@ import React from 'react';
 import { BsPencil } from "react-icons/bs";
 
 
-export class CompanyTitle extends React.Component {
+export class OrganisationTitle extends React.Component {
     render() {
         return (
             <div style={{ display: "inline" }}>

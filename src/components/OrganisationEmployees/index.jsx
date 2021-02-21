@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Grid, Row } from 'react-bootstrap';
 import OrganisationTree from './OrganisationTree/';
 import EmployeesTable from './OrganisationTable';
-import CompanyDetail from './CompanyDetail/';
+import Organisation from './Organisation';
 import appConfig from '../../config';
 import { sort, filter } from './constants'
 
@@ -67,7 +67,7 @@ class OrganisationEmployees extends React.Component {
                         />
                     </Col>
                     <Col lg={9} sm={12} md={13}>
-                        <CompanyDetail {...this.state.data} />
+                        <Organisation {...this.state.data} />
                         <Row>
                             <EmployeesTable
                                 filterBy={filterBy}

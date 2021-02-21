@@ -11,7 +11,7 @@ const settingsPanel = {
     overtimeEnabled: 'Overtime enabled: '
 }
 
-export class OrganisationSettings extends React.Component {
+export class OrganisationDetail extends React.Component {
 
     renderDetailField = (key) => {
         if (key === 'leaveYearStartDate') {

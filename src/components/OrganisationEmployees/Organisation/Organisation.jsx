@@ -1,10 +1,10 @@
 import React from 'react';
 import { Row } from 'react-bootstrap';
-import CompanyTitle from '../CompanyTitle'
-import OrganisationSettings from '../OrganisationSettings'
+import OrganisationTitle from './OrganisationTitle'
+import OrganisationDetail from './OrganisationDetail'
 
 
-export class CompanyDetail extends React.Component {
+export class Organisation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -19,11 +19,11 @@ export class CompanyDetail extends React.Component {
         return (
             <div>
                 <Row>
-                    <CompanyTitle {...props} />
+                    <OrganisationTitle {...props} />
                 </Row>
                 <hr style={{ margin: 0, marginBottom: "1rem", border: "1px solid #00ABD4", background: "#00ABD4" }}></hr>
                 <Row>
-                    <OrganisationSettings {...props} hide={this.state.hide} handleChange={this.handleChange} />
+                    <OrganisationDetail {...props} hide={this.state.hide} handleChange={this.handleChange} />
                 </Row>
             </div>
         );
