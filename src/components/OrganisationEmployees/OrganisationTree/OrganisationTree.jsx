@@ -1,20 +1,21 @@
 import React from 'react';
 import {Label } from 'react-bootstrap';
 import '../OrganisationEmployees.css';
-import LocationTab from '../LocationTab'
+import LocationTab from './LocationTab'
 
 
 export class OrganisationTree extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedWorkgroupName: ''
+            selectedWorkgroupName: '',
+            selectedLocation: ''
         };
     }
 
-    filterByWorkgroupHandler = (value, filter) => {
-        this.setState({ selectedWorkgroupName: value });
-        this.props.handleFilterChange(filter, value);
+    filterByWorkgroupHandler = (workgroup, filter, location) => {
+        this.setState({ selectedWorkgroupName: workgroup, selectedLocation: location }, () => console.log(this.state));
+        this.props.handleFilterChange(filter, workgroup);
     }
 
     tabs = () => {

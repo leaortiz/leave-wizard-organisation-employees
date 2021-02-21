@@ -1,6 +1,6 @@
 import React from 'react';
 import { PanelGroup, Panel } from 'react-bootstrap';
-import '../OrganisationEmployees.css';
+import '../../OrganisationEmployees.css';
 import Workgroups from '../WorkGroups'
 
 export class LocationTab extends React.Component {

@@ -1,7 +1,9 @@
 import React from 'react';
 import { Panel } from 'react-bootstrap';
-import '../OrganisationEmployees.css';
-import { filter } from '../constants'
+import '../../OrganisationEmployees.css';
+import { filter } from '../../constants'
+import { MdDetails } from "react-icons/md";
+
 
 
 export class Workgroups extends React.Component {
@@ -14,20 +16,20 @@ export class Workgroups extends React.Component {
 
     showAllHandler = (value) => this.props.handleFilterChange(filter.LOCATION, value);
 
-    isSelectedStyle = (workgroupName) => workgroupName === this.props.selectedWorkgroupName ? { backgroundColor: "#00ABD4", color: "white" } : {};
+    isSelectedStyle = (workgroupName) => workgroupName === this.props.selectedWorkgroupName ? { backgroundColor: "#00ABD4", color: "white", } : {};
 
     workgroups = () => {
         let ret = this.props.workgroups
             .filter(w => w.locationId === this.props.location.id && w.isActive)
             .map((w) =>
-                <div key={w.name}>
+                <div key={w.name}>                   
                     <Panel.Body
                         collapsible
                         className="noselect tree-workgroups"
-                        onClick={() => this.props.filterByWorkgroupHandler(w.name, filter.WORKGROUP)}
+                        onClick={() => this.props.filterByWorkgroupHandler(w.name, filter.WORKGROUP, this.props.location)}
                         style={this.isSelectedStyle(w.name)}
                     >
-                        {w.name}
+                        {w.name} 
                     </Panel.Body>
                     <hr style={{ margin: 0 }}></hr>
                 </div>
