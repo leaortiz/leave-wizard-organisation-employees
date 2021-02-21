@@ -41,6 +41,7 @@ export class OrganisationSettings extends React.Component {
                             </p>
                         )}
                     <p
+                        style={{float:"right"}}
                         className="lw-light-blue company-detail-btn-text"
                         onClick={() => this.props.handleChange("hide", !this.props.hide)}
                     >

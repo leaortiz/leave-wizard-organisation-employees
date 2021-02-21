@@ -1,5 +1,5 @@
 {
-  "homepage": "http://leaortiz.github.io/leave-wizard-organization-employees",
+  "homepage": "http://leaortiz.github.io/leave-wizard-organisation-employees",
   "name": "leave-wizard-organization-employees",
   "version": "0.1.0",
   "private": true,
@@ -28,7 +28,7 @@
     "build:prd": "env-cmd .env.prd npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "predeploy": "env-cmd .env.prd npm run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
