@@ -13,7 +13,7 @@ export class Workgroups extends React.Component {
 
     showAllHandler = (value) => this.props.handleFilterChange(filter.LOCATION, value);
 
-    isSelectedStyle = (workgroupName) => workgroupName === this.props.selectedWorkgroupName ? { backgroundColor: "#00ABD4", color: "white", } : {};
+    isSelectedStyle = (workgroupId) => workgroupId === this.props.selectedWorkgroupId ? { backgroundColor: "#00ABD4", color: "white", } : {};
 
     workgroups = () => {
         let ret = this.props.workgroups
@@ -24,7 +24,7 @@ export class Workgroups extends React.Component {
                         collapsible
                         className="noselect tree-workgroups"
                         onClick={() => this.props.filterByWorkgroupHandler(w.id, filter.WORKGROUP, this.props.location)}
-                        style={this.isSelectedStyle(w.name)}
+                        style={this.isSelectedStyle(w.id)}
                     >
                         {w.name} 
                     </Panel.Body>

@@ -8,14 +8,14 @@ export class OrganisationTree extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedWorkgroupName: '',
+            selectedWorkgroupId: 36,
             selectedLocation: ''
         };
     }
 
-    filterByWorkgroupHandler = (workgroup, filter, location) => {
-        this.setState({ selectedWorkgroupName: workgroup, selectedLocation: location });
-        this.props.handleFilterChange(filter, workgroup);
+    filterByWorkgroupHandler = (workgroupId, filter, location) => {
+        this.setState({ selectedWorkgroupId: workgroupId, selectedLocation: location });
+        this.props.handleFilterChange(filter, workgroupId);
     }
 
     tabs = () => {
@@ -26,7 +26,7 @@ export class OrganisationTree extends React.Component {
                     key={'lt' + index}
                     location={location}
                     filterByWorkgroupHandler={this.filterByWorkgroupHandler}
-                    selectedWorkgroupName={this.state.selectedWorkgroupName}
+                    selectedWorkgroupId={this.state.selectedWorkgroupId}
                     {...this.props} />
             ));
     }
@@ -34,7 +34,7 @@ export class OrganisationTree extends React.Component {
     resetFilters = () => 
     {
         this.props.resetfilterValueIds()
-        this.setState({selectedWorkgroupName: ''})
+        this.setState({selectedWorkgroupId: 0})
     }
 
     render() {
