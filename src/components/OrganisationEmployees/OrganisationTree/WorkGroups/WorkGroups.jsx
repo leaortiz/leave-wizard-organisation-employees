@@ -2,9 +2,6 @@ import React from 'react';
 import { Panel } from 'react-bootstrap';
 import '../../OrganisationEmployees.css';
 import { filter } from '../../constants'
-import { MdDetails } from "react-icons/md";
-
-
 
 export class Workgroups extends React.Component {
     constructor(props) {
@@ -26,7 +23,7 @@ export class Workgroups extends React.Component {
                     <Panel.Body
                         collapsible
                         className="noselect tree-workgroups"
-                        onClick={() => this.props.filterByWorkgroupHandler(w.name, filter.WORKGROUP, this.props.location)}
+                        onClick={() => this.props.filterByWorkgroupHandler(w.id, filter.WORKGROUP, this.props.location)}
                         style={this.isSelectedStyle(w.name)}
                     >
                         {w.name} 
@@ -39,11 +36,11 @@ export class Workgroups extends React.Component {
                 <Panel.Body
                     onClick={() => {
                         this.showAllHandler(this.props.location.name);
-                        this.props.filterByWorkgroupHandler(this.props.location.name, filter.LOCATION)
+                        this.props.filterByWorkgroupHandler(this.props.location.id, filter.LOCATION)
                     }}
                     collapsible
                     className="noselect tree-workgroups"
-                    style={this.isSelectedStyle(this.props.location.name)}
+                    style={this.isSelectedStyle(this.props.location.id)}
                 >
                     {`All workgroups for this location`}
                 </Panel.Body>

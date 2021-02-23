@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Grid, Row } from 'react-bootstrap';
+import LocationDetail from '../LocationDetail'
 import OrganisationTree from '../OrganisationTree';
 import OrganisationTable from '../OrganisationTable';
 import Organisation from '../Organisation';
@@ -12,7 +13,7 @@ class OrganisationEmployees extends React.Component {
         this.state = {
             data: { companyId: 0, name: "", locations: [], workgroups: [], employees: [] },
             filterBy: filter.DEFAULT,
-            filterValue: "",
+            filterValueId: "",
             sortBy: sort.DEFAULT,
         };
     }
@@ -36,26 +37,27 @@ class OrganisationEmployees extends React.Component {
 
     handleChange = (name, value) => this.setState({ [name]: value });
 
-    handleFilterChange = (filterBy, filterValue) =>
+    handleFilterChange = (filterBy, filterValueId) =>
         this.setState({
             filterBy: filterBy,
-            filterValue: filterValue
+            filterValueId: filterValueId
         });
 
     handleSortByChange = (sortBy) => this.setState({ sortBy: sortBy, });
 
-    resetFilterValues = () => this.setState({
+    resetfilterValueIds = () => this.setState({
         filterBy: filter.DEFAULT,
-        filterValue: "",
+        filterValueId: "",
         sortBy: sort.DEFAULT,
     })
 
     render() {
-        const { data, filterBy, filterValue, sortBy } = this.state;
+        const { data, filterBy, filterValueId, sortBy } = this.state;
         return (
             <Grid>
                 <Row>
                     <Col lg={3} sm={4} md={3}>
+                        <Row>
                         <OrganisationTree
                             name={data.name}
                             companyId={data.id}
@@ -63,15 +65,19 @@ class OrganisationEmployees extends React.Component {
                             workgroups={data.workgroups}
                             handleChange={this.handleChange}
                             handleFilterChange={this.handleFilterChange}
-                            resetFilterValues={this.resetFilterValues}
+                            resetfilterValueIds={this.resetfilterValueIds}
                         />
+                        </Row>
+                        <Row>
+                           <LocationDetail {...this.state}/>
+                        </Row>
                     </Col>
                     <Col lg={9} sm={12} md={13}>
                         <Organisation {...this.state.data} />
                         <Row>
                             <OrganisationTable
                                 filterBy={filterBy}
-                                filterValue={filterValue}
+                                filterValueId={filterValueId}
                                 sortBy={sortBy}
                                 {...this.state.data}
                                 handleSortByChange={this.handleSortByChange}

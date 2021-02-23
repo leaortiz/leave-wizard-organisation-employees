@@ -14,7 +14,7 @@ export class OrganisationTree extends React.Component {
     }
 
     filterByWorkgroupHandler = (workgroup, filter, location) => {
-        this.setState({ selectedWorkgroupName: workgroup, selectedLocation: location }, () => console.log(this.state));
+        this.setState({ selectedWorkgroupName: workgroup, selectedLocation: location });
         this.props.handleFilterChange(filter, workgroup);
     }
 
@@ -33,7 +33,7 @@ export class OrganisationTree extends React.Component {
 
     resetFilters = () => 
     {
-        this.props.resetFilterValues()
+        this.props.resetfilterValueIds()
         this.setState({selectedWorkgroupName: ''})
     }
 
