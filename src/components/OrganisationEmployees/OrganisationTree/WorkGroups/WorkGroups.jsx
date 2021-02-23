@@ -42,7 +42,7 @@ export class Workgroups extends React.Component {
                     className="noselect tree-workgroups"
                     style={this.isSelectedStyle(this.props.location.id)}
                 >
-                    {`All workgroups for this location`}
+                    {this.props.location.name}
                 </Panel.Body>
                 <hr style={{ margin: 0 }}></hr>
             </div>);

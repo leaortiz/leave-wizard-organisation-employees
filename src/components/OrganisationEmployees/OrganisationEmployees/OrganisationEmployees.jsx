@@ -5,7 +5,8 @@ import OrganisationTree from '../OrganisationTree';
 import OrganisationTable from '../OrganisationTable';
 import Organisation from '../Organisation';
 import appConfig from '../../../config/';
-import { sort, filter } from '../constants'
+import { sort, filter } from '../constants';
+import '../OrganisationEmployees.css';
 
 class OrganisationEmployees extends React.Component {
     constructor(props) {
@@ -56,21 +57,23 @@ class OrganisationEmployees extends React.Component {
         return (
             <Grid>
                 <Row>
-                    <Col lg={3} sm={4} md={3}>
-                        <Row>
-                        <OrganisationTree
-                            name={data.name}
-                            companyId={data.id}
-                            locations={data.locations}
-                            workgroups={data.workgroups}
-                            handleChange={this.handleChange}
-                            handleFilterChange={this.handleFilterChange}
-                            resetfilterValueIds={this.resetfilterValueIds}
-                        />
-                        </Row>
-                        <Row>
-                           <LocationDetail {...this.state}/>
-                        </Row>
+                    <Col lg={3} sm={4} md={12}>
+                        <Col lg={12} sm={12} md={6}>
+                            <OrganisationTree
+                                name={data.name}
+                                companyId={data.id}
+                                locations={data.locations}
+                                workgroups={data.workgroups}
+                                handleChange={this.handleChange}
+                                handleFilterChange={this.handleFilterChange}
+                                resetfilterValueIds={this.resetfilterValueIds}
+                            />
+                        </Col>
+
+                        <Col lg={12} sm={12} md={6}>
+                            <LocationDetail {...this.state} />
+                        </Col>
+
                     </Col>
                     <Col lg={9} sm={12} md={13}>
                         <Organisation {...this.state.data} />
