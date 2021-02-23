@@ -53,3 +53,12 @@
   background-color: #eee;
 }
 
+.lw-show-details{
+  cursor: pointer;
+  background-color: #f5f5f5!important;
+  height: 3rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+

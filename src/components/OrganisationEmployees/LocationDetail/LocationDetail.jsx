@@ -31,7 +31,7 @@ export class WorkgroupDetail extends React.Component {
 
 export default class CompanyDetail extends React.Component {
 
-    buildData = ({ filterBy, filterValueId }, array) => {
+    getComponent = ({ filterBy, filterValueId }, array) => {
         let data = array.filter(l => l.id === filterValueId)[0];
         if (filterBy === filter.LOCATION) {
             const props = {
@@ -56,10 +56,10 @@ export default class CompanyDetail extends React.Component {
         const isWorkgroup = this.props.filterBy === filter.WORKGROUP;
 
         let array = isLocation ? this.props.data.locations : isWorkgroup ? this.props.data.workgroups : [];
-        const component = this.buildData(this.props, array);
+        const component = this.getComponent(this.props, array);
 
         return (
-            <> {this.props.filterBy !== filter.DEFAULT &&
+            <> {this.props.filterBy !== filter.DEFAULT ?
                 <div>
                     <h3 style={{ marginBottom: "2rem", color: "#00ABD4", cursor: "pointer" }}>
                         {isLocation && "Location Detail"}
@@ -72,7 +72,9 @@ export default class CompanyDetail extends React.Component {
                         </Panel.Body>
                     </Panel>
 
-                </div>}
+                </div>
+                : {}
+            }
             </>
         )
     }

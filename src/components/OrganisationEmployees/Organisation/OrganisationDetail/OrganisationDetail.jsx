@@ -1,6 +1,7 @@
 import React from 'react';
 import { Panel } from 'react-bootstrap';
 import moment from 'moment';
+import { FcExpand, FcCollapse } from "react-icons/fc";
 
 
 const settingsPanel = {
@@ -31,23 +32,24 @@ export default class OrganisationDetail extends React.Component {
         const keys = Object.keys(settingsPanel);
         return (
             <Panel>
-                <Panel.Body style={{ padding: "8px" }}>
+                <Panel.Body style={{ padding: 0 }}>
 
-                    {this.props.hide ?
-                        null
-                        : keys.map((k, i) =>
-                            <p key={i}>
-                                {this.renderDetailField(k)}
-                            </p>
-                        )}
-                    <p
-                        style={{float:"right"}}
-                        className="lw-light-blue company-detail-btn-text"
-                        onClick={() => this.props.handleChange("hide", !this.props.hide)}
-                    >
-                        {this.props.hide ? "show more" : "show less"}
-                    </p>
+                    {this.props.hide ? null :
+                        <div style={{ padding: '12px' }} >
+                            {
+                                keys.map((k, i) =>
+                                    <p key={i}>
+                                        {this.renderDetailField(k)}
+                                    </p>
+                                )}
+                        </div>
+                    }
                 </Panel.Body>
+                <div className='lw-show-details' onClick={() => this.props.handleChange("hide", !this.props.hide)} >
+                    <h3 style={{ display: 'block', margin: 0, marginLeft: '49%' }} >
+                        {this.props.hide ? <FcExpand /> : <FcCollapse />}
+                    </h3>
+                </div>
             </Panel>
         )
     }

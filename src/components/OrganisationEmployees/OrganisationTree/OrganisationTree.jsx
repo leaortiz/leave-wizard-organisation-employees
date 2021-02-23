@@ -44,7 +44,6 @@ export class OrganisationTree extends React.Component {
             <div>
                 <h3 style={{ marginBottom: "2rem", color: "#00ABD4", cursor: "pointer" }}>
                     <Label
-                        onClick={this.resetFilters}
                         className="lw-bg-light-blue">
                         {this.props.name}
                     </Label>
