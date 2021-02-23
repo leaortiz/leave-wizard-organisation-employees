@@ -7,9 +7,9 @@ export class LocationDetail extends React.Component {
     render() {
         return (
             <>
-                <h4 className="lw-light-blue">{this.props.city}:</h4>                
-                <p><strong>Work pattern:</strong> {this.props.workPattern ?? 'N/A'}</p>
+                <h4 className="lw-light-blue">{this.props.city}:</h4>
                 <p><strong>Max staff on leave:</strong> {this.props.maxStaffOnLeave ?? 'N/A'}</p>
+                <p><strong>Work pattern:</strong> {this.props.workPattern ?? 'N/A'}</p>              
             </>
         )
     }
@@ -21,8 +21,9 @@ export class WorkgroupDetail extends React.Component {
         return (
             <>
                 <h4 className="lw-light-blue">{this.props.name}:</h4>
-                <p><strong>Leader:</strong> {this.props.leaderName ?? 'N/A'}</p>
                 <p><strong>Max staff on leave:</strong> {this.props.maxStaffOnLeave ?? 'N/A'}</p>
+                <p><strong>Leader:</strong> {this.props.leaderName ?? 'N/A'}</p>
+               
             </>
         )
     }
@@ -30,21 +31,23 @@ export class WorkgroupDetail extends React.Component {
 
 export default class CompanyDetail extends React.Component {
 
-    buildData = ({filterBy, filterValueId}, array) => {
+    buildData = ({ filterBy, filterValueId }, array) => {
         let data = array.filter(l => l.id === filterValueId)[0];
         if (filterBy === filter.LOCATION) {
-            return {
+            const props = {
                 city: data.city,
-                maxStaffOnLeave: data.maxStaffOnLeave,
-                workPattern: data.workPattern
-            }
+                maxStaffOnLeave: data.maxStaffOnLeave ?? 'N/A',
+                workPattern: data.workPattern ?? 'N/A'
+            };
+            return <LocationDetail {...props} />
         }
         if (filterBy === filter.WORKGROUP) {
-            return {
-                name:data.name, 
+            const props = {
+                name: data.name,
                 leaderName: data.leader?.name ?? 'N/A',
-                maxStaffOnLeave: data.maxStaffOnLeave
+                maxStaffOnLeave: data.maxStaffOnLeave ?? 'N/A'
             }
+            return <WorkgroupDetail {...props} />
         }
     }
 
@@ -53,10 +56,8 @@ export default class CompanyDetail extends React.Component {
         const isWorkgroup = this.props.filterBy === filter.WORKGROUP;
 
         let array = isLocation ? this.props.data.locations : isWorkgroup ? this.props.data.workgroups : [];
-        
-        const data = this.buildData(this.props, array);
-        
-        console.log(this.props, 'this.props.filterBy');
+        const component = this.buildData(this.props, array);
+
         return (
             <> {this.props.filterBy !== filter.DEFAULT &&
                 <div>
@@ -67,13 +68,11 @@ export default class CompanyDetail extends React.Component {
 
                     <Panel>
                         <Panel.Body style={{ padding: "8px" }}>
-                            {isLocation && <LocationDetail {...data} />}
-                            {isWorkgroup && <WorkgroupDetail {...data} />}
+                            {component}
                         </Panel.Body>
                     </Panel>
 
                 </div>}
-
             </>
         )
     }
