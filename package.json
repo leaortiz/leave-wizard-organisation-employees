@@ -23,6 +23,8 @@
   },
   "scripts": {
     "start": "env-cmd .env react-scripts start",
+    "start:uat": "env-cmd .env.uat react-scripts start",
+    "start:prd": "env-cmd .env.prd react-scripts start",
     "build": "react-scripts build",
     "build:local": "env-cmd .env npm run build",
     "build:uat": "env-cmd .env.uat npm run build",
