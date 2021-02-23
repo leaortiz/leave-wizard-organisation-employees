@@ -1,3 +1,3 @@
-import { Organisation } from './Organisation'
+import Organisation from './Organisation'
 
 export default Organisation;

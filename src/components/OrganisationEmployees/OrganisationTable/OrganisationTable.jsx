@@ -3,7 +3,7 @@ import { Checkbox, Table } from 'react-bootstrap';
 import EmployeesTableHeader from './EmployeesTableHeader'
 import EmployeesTableBody from './EmployeesTableBody'
 
-export class EmployeesTable extends React.Component {
+export default class OrganisationTable extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

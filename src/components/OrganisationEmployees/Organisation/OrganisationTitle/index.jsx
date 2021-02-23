@@ -1,3 +1,3 @@
-import { OrganisationTitle } from './OrganisationTitle'
+import OrganisationTitle from './OrganisationTitle'
 
 export default OrganisationTitle;

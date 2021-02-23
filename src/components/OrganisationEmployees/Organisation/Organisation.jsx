@@ -4,7 +4,7 @@ import OrganisationTitle from './OrganisationTitle'
 import OrganisationDetail from './OrganisationDetail'
 
 
-export class Organisation extends React.Component {
+export default class Organisation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

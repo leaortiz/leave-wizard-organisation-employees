@@ -24,7 +24,7 @@ export class EmployeesTableRow extends React.Component {
     render() {
         const { employees } = this.props;
         return (
-            <tbody>
+            <>
                 {
                     employees.length === 0 ?
                         <tr><td colSpan={columns.length} style={{ textAlign: "center" }}>There are no employees to show.</td></tr> :
@@ -41,7 +41,7 @@ export class EmployeesTableRow extends React.Component {
                             </tr>
                         )
                 }
-            </tbody>
+            </>
         );
     }
 }

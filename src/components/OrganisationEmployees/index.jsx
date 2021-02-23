@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Grid, Row } from 'react-bootstrap';
 import OrganisationTree from './OrganisationTree/';
-import EmployeesTable from './OrganisationTable';
+import OrganisationTable from './OrganisationTable';
 import Organisation from './Organisation';
 import appConfig from '../../config';
 import { sort, filter } from './constants'
@@ -69,7 +69,7 @@ class OrganisationEmployees extends React.Component {
                     <Col lg={9} sm={12} md={13}>
                         <Organisation {...this.state.data} />
                         <Row>
-                            <EmployeesTable
+                            <OrganisationTable
                                 filterBy={filterBy}
                                 filterValue={filterValue}
                                 sortBy={sortBy}

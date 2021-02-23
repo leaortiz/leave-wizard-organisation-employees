@@ -31,7 +31,9 @@ export class EmployeesTableBody extends React.Component {
     render() {
         const employees = this.getMutatedEmployeeList();
         return (
-            <EmployeesTableRow employees={employees}/>
+            <tbody>
+                <EmployeesTableRow employees={employees}/>
+            </tbody>
         );
     }
 }

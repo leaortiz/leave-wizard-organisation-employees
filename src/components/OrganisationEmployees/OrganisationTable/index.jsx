@@ -1,3 +1,3 @@
-import { EmployeesTable } from './OrganisationTable'
+import OrganisationTable from './OrganisationTable'
 
-export default EmployeesTable;
+export default OrganisationTable;
