@@ -13,7 +13,7 @@ export class Workgroups extends React.Component {
 
     showAllHandler = (value) => this.props.handleFilterChange(filter.LOCATION, value);
 
-    isSelectedStyle = (workgroupId) => workgroupId === this.props.selectedWorkgroupId ? { backgroundColor: "#00ABD4", color: "white", } : {};
+    isSelectedStyle = (workgroupId) => workgroupId === this.props.selectedTreeId ? { backgroundColor: "#00ABD4", color: "white", } : {};
 
     workgroups = () => {
         let ret = this.props.workgroups
