@@ -57,7 +57,6 @@ export class OrganisationTree extends React.Component {
                     >
                         reset
                     </p></div>
-                    <hr></hr>
                     
             </div>
         );
