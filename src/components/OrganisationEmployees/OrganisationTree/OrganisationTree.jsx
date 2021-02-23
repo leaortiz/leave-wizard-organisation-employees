@@ -1,5 +1,5 @@
 import React from 'react';
-import {Label } from 'react-bootstrap';
+import { Label, Panel } from 'react-bootstrap';
 import '../OrganisationEmployees.css';
 import LocationTab from './LocationTab'
 
@@ -8,7 +8,7 @@ export class OrganisationTree extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedTreeId: 36,
+            selectedTreeId: 0,
             selectedLocation: ''
         };
     }
@@ -31,14 +31,15 @@ export class OrganisationTree extends React.Component {
             ));
     }
 
-    resetFilters = () => 
-    {
+    isSelectedStyle = () => this.state.selectedTreeId === 0 ? { backgroundColor: "#00ABD4", color: "white", } : {backgroundColor: "#f5f5f5" };
+
+    resetFilters = () => {
         this.props.resetfilterValueIds()
-        this.setState({selectedTreeId: 0})
+        this.setState({ selectedTreeId: 0 })
     }
 
     render() {
-
+        console.log(this.state.selectedTreeId, 'selectedTreeIdselectedTreeId');
         return (
             <div>
                 <h3 style={{ marginBottom: "2rem", color: "#00ABD4", cursor: "pointer" }}>
@@ -50,14 +51,15 @@ export class OrganisationTree extends React.Component {
                 </h3>
 
                 {this.tabs()}
-                <div>                <p
-                        style={{textAlign:"left"}}
-                        className="lw-light-blue company-detail-btn-text"
+                    <Panel
+                        className="company-detail-btn-text"
                         onClick={this.resetFilters}
+                        style={this.isSelectedStyle()}
                     >
-                        reset
-                    </p></div>
-                    
+                        Show all
+                    </Panel>
+                    <hr style={{margin:1}}></hr>
+
             </div>
         );
     }

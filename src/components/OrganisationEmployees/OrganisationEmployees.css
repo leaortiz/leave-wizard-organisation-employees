@@ -30,9 +30,15 @@
 }
 
 .company-detail-btn-text {
-  text-align: right;
-  margin: 0;
+  padding: 0.4rem!important;
+  padding-Left: 2.5rem!important;
   cursor: pointer;
+  border-bottom: 0!important;
+  font-size: 12px;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  line-height: 1.42857143;
+  color: #333;
 }
 
 .lw-light-blue {
