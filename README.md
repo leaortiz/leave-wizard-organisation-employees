@@ -3,7 +3,7 @@
 <p align="center">
     <img src="assets/lw-logo-organisation-employees.png" alt="appintro icon" width="60%"/> 
 </p>
-
+![](assets/lw-logo-organisation-employees.PNG)
 
 Hi! as requested, here is your React.js site
 
