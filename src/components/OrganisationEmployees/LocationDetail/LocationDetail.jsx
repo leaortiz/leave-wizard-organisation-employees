@@ -73,7 +73,7 @@ export default class CompanyDetail extends React.Component {
                     </Panel>
 
                 </div>
-                : {}
+                : null
             }
             </>
         )
