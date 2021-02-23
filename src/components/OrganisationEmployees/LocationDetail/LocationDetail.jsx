@@ -7,9 +7,9 @@ export class LocationDetail extends React.Component {
     render() {
         return (
             <>
-                <h4 className="lw-light-blue">{this.props.city}:</h4>
-                <p><strong>Max staff on leave:</strong> {this.props.maxStaffOnLeave ?? 'N/A'}</p>
+                <h4 className="lw-light-blue">{this.props.city}:</h4>                
                 <p><strong>Work pattern:</strong> {this.props.workPattern ?? 'N/A'}</p>
+                <p><strong>Max staff on leave:</strong> {this.props.maxStaffOnLeave ?? 'N/A'}</p>
             </>
         )
     }
