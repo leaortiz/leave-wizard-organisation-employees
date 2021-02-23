@@ -1,9 +1,6 @@
 # Welcome to:
 
-<p align="center">
-    <img src="assets/lw-logo-organisation-employees.png" alt="appintro icon" width="60%"/> 
-</p>
-![](assets/lw-logo-organisation-employees.PNG)
+![](assets/lw%20logo%20organisation%20employees.PNG)
 
 Hi! as requested, here is your React.js site
 
