@@ -1,6 +1,8 @@
 # Welcome to:
 
-![](assets/lw%20logo%20organisation%20employees.PNG)
+<p align="center">
+    <img src="assets/logo.png" alt="appintro icon"/> 
+</p>
 
 Hi! as requested, here is your React.js site
 
