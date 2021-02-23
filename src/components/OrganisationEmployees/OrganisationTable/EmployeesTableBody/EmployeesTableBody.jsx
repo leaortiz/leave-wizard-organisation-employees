@@ -26,8 +26,6 @@ export class EmployeesTableBody extends React.Component {
           
         if (filterBy === filter.WORKGROUP)
             mutatedList = mutatedList.filter(e => e.workgroupId === filterValueId);
-
-            console.log(mutatedList, 'mutatedList', 'lista');
         
         return showInactiveEmployees ? mutatedList.filter(e => e.isActive) : mutatedList;
     }
