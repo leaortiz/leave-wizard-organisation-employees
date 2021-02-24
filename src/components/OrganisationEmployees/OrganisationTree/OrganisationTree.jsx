@@ -39,7 +39,6 @@ export class OrganisationTree extends React.Component {
     }
 
     render() {
-        console.log(this.state.selectedTreeId, 'selectedTreeIdselectedTreeId');
         return (
             <div>
                 <h3 style={{ marginBottom: "2rem", color: "#00ABD4", cursor: "pointer" }}>

@@ -5,7 +5,7 @@ import OrganisationTree from '../OrganisationTree';
 import OrganisationTable from '../OrganisationTable';
 import Organisation from '../Organisation';
 import appConfig from '../../../config/';
-import { sort, filter } from '../constants';
+import { sortBy, filter } from '../constants';
 import '../OrganisationEmployees.css';
 
 class OrganisationEmployees extends React.Component {
@@ -15,7 +15,7 @@ class OrganisationEmployees extends React.Component {
             data: { companyId: 0, name: "", locations: [], workgroups: [], employees: [] },
             filterBy: filter.DEFAULT,
             filterValueId: "",
-            sortBy: sort.DEFAULT,
+            sortBy: sortBy.NAME,
         };
     }
 
@@ -49,7 +49,7 @@ class OrganisationEmployees extends React.Component {
     resetfilterValueIds = () => this.setState({
         filterBy: filter.DEFAULT,
         filterValueId: "",
-        sortBy: sort.DEFAULT,
+        sortBy: sortBy.NAME,
     })
 
     render() {

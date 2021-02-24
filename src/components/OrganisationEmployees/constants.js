@@ -1,20 +1,25 @@
-export const sort = {
+export const sortBy = {
     NAME: "lastName",
     ROLE: "role",
     WORKGROUP: "workgroupName",
     DEFAULT: "default"
 }
 
+export const sort = {  
+    ASC: "asc",
+    DESC: "desc"
+}
+
 export const sortHelper = (value) => {
     switch (value) {
         case "name":
-            return sort.NAME;
+            return sortBy.NAME;
         case "role":
-            return sort.ROLE;
+            return sortBy.ROLE;
         case "workgroupName":
-            return sort.WORKGROUP;
+            return sortBy.WORKGROUP;
         default:
-            return sort.DEFAULT
+            return sortBy.DEFAULT
     }
 }
 

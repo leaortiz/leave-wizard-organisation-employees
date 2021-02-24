@@ -1,5 +1,5 @@
 import React from 'react';
-import { sort, filter } from '../../constants'
+import { filter } from '../../constants'
 import EmployeesTableRow from '../EmployeesTableRow'
 
 
@@ -15,7 +15,7 @@ export class EmployeesTableBody extends React.Component {
         const { employees, sortBy, filterBy, filterValueId, showInactiveEmployees, workgroups } = this.props;
 
         let clonedList = employees.slice();
-        sortBy !== sort.DEFAULT ?
+        sortBy !== sortBy.DEFAULT ?
             clonedList.sort((a, b) => (a[sortBy] > b[sortBy]) ? 1 : ((b[sortBy] > a[sortBy]) ? -1 : 0)) :
             clonedList.sort((a, b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
         if (filterBy === filter.LOCATION)
