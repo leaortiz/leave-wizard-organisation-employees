@@ -1,6 +1,5 @@
 import React from 'react';
 import { Col, Grid, Row } from 'react-bootstrap';
-import LocationDetail from '../LocationDetail'
 import OrganisationTree from '../OrganisationTree';
 import OrganisationTable from '../OrganisationTable';
 import Organisation from '../Organisation';
@@ -58,7 +57,6 @@ class OrganisationEmployees extends React.Component {
             <Grid>
                 <Row>
                     <Col lg={3} sm={4} md={12}>
-                        <Col lg={12} sm={12} md={6}>
                             <OrganisationTree
                                 name={data.name}
                                 companyId={data.id}
@@ -68,15 +66,9 @@ class OrganisationEmployees extends React.Component {
                                 handleFilterChange={this.handleFilterChange}
                                 resetfilterValueIds={this.resetfilterValueIds}
                             />
-                        </Col>
-
-                        <Col lg={12} sm={12} md={6}>
-                            <LocationDetail {...this.state} />
-                        </Col>
-
                     </Col>
                     <Col lg={9} sm={12} md={13}>
-                        <Organisation {...this.state.data} />
+                        <Organisation {...this.state.data} {...this.state} />
                         <Row>
                             <OrganisationTable
                                 filterBy={filterBy}

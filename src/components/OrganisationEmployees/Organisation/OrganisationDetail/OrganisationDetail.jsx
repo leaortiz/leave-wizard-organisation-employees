@@ -2,9 +2,10 @@ import React from 'react';
 import { Panel } from 'react-bootstrap';
 import moment from 'moment';
 import { FcExpand, FcCollapse } from "react-icons/fc";
+import { filter } from '../../constants';
 
 
-const settingsPanel = {
+const companyLevelDetail = {
     email: "Email: ",
     leaveYearStartDate: 'Leave year starts on (dd/MM): ',
     workPattern: 'Work pattern: ',
@@ -12,24 +13,62 @@ const settingsPanel = {
     overtimeEnabled: 'Overtime enabled: '
 }
 
+const locationDetail = {
+    city: 'City: ',
+    workPattern: 'Work pattern: ',
+    maxStaffOnLeave: "Max staff on leave: "
+}
+
+const workgroupDetail = {
+    name: 'Workgroup: ',
+    leaderName: "Leader: ",
+    maxStaffOnLeave: 'Max staff leave for the whole company: ',
+}
+
+
 export default class OrganisationDetail extends React.Component {
 
-    renderDetailField = (key) => {
-        if (key === 'leaveYearStartDate') {
-            return <><strong>{settingsPanel[key]}</strong> {moment(this.props.leaveYearStartDate).format('DD/MMM')}  </>
+    getData = ({ filterBy, filterValueId }, array) => {
+        let data = array.slice().filter(l => l.id === filterValueId)[0];
+        if (filterBy === filter.LOCATION) {
+            return {
+                data: {
+                    city: data.city,
+                    maxStaffOnLeave: data.maxStaffOnLeave ?? 'N/A',
+                    workPattern: data.workPattern ?? 'N/A'
+                },
+                detail: locationDetail,
+            };
+        }
+        else if (filterBy === filter.WORKGROUP) {
+            return {
+                data: {
+                    name: data.name,
+                    leaderName: data.leader?.name ?? 'N/A',
+                    maxStaffOnLeave: data.maxStaffOnLeave ?? 'N/A'
+                },
+                detail: workgroupDetail
+            }
         }
         else
-            return <>
-                <strong>{settingsPanel[key]}</strong>
-                {key === 'workPattern' ?
-                    this.props[key]?.name :
-                    this.props[key]?.toString()}
-            </>
-
+            return {
+                data: {
+                    email: this.props.email,
+                    leaveYearStartDate: moment(this.props.leaveYearStartDate).format('DD/MMM'),
+                    workPattern: this.props.workPattern?.name,
+                    maxStaffOnLeave: this.props.maxStaffOnLeave,
+                    overtimeEnabled: this.props.overtimeEnabled ? 'yes' : 'no'
+                },
+                detail: companyLevelDetail
+            }
     }
 
     render() {
-        const keys = Object.keys(settingsPanel);
+        const isLocation = this.props.filterBy === filter.LOCATION;
+        const isWorkgroup = this.props.filterBy === filter.WORKGROUP;
+        let array = isLocation ? this.props.data.locations : isWorkgroup ? this.props.data.workgroups : [];
+        const data = this.getData(this.props, array);
+       
         return (
             <Panel>
                 <Panel.Body style={{ padding: 0 }}>
@@ -37,9 +76,9 @@ export default class OrganisationDetail extends React.Component {
                     {this.props.hide ? null :
                         <div style={{ padding: '12px' }} >
                             {
-                                keys.map((k, i) =>
+                                Object.keys(data.detail).map((k, i) =>
                                     <p key={i}>
-                                        {this.renderDetailField(k)}
+                                        {<strong>{data.detail[k]}</strong>} {data.data[k]}
                                     </p>
                                 )}
                         </div>
