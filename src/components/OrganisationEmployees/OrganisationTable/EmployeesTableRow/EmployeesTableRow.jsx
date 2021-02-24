@@ -12,7 +12,7 @@ export class EmployeesTableRow extends React.Component {
     renderTd = (e, datafield) => {
         // should be refactored if more columns need a different formatter, this will do for now.
         if (datafield === "name")
-            return <p className="lw-light-blue">{e.firstName} {e.lastName}</p>
+            return <p className="lw-light-blue">{e.lastName}, {e.firstName}</p>
         else if (datafield === "viewLeaveTaken")
             return <a href="#" className="lw-light-blue">View Leave Taken</a>
         else if (datafield === "leaveYearStartDate")

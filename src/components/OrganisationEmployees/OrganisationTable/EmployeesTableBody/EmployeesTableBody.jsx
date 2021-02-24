@@ -14,20 +14,20 @@ export class EmployeesTableBody extends React.Component {
         //next step refactor to redux
         const { employees, sortBy, filterBy, filterValueId, showInactiveEmployees, workgroups } = this.props;
 
-        let mutatedList = employees;
+        let clonedList = employees.slice();
         sortBy !== sort.DEFAULT ?
-            mutatedList.sort((a, b) => (a[sortBy] > b[sortBy]) ? 1 : ((b[sortBy] > a[sortBy]) ? -1 : 0)) :
-            mutatedList.sort((a, b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
+            clonedList.sort((a, b) => (a[sortBy] > b[sortBy]) ? 1 : ((b[sortBy] > a[sortBy]) ? -1 : 0)) :
+            clonedList.sort((a, b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
         if (filterBy === filter.LOCATION)
         {
             const filteredWorkGroupsBySelectedLocation = workgroups.filter(w => w.locationId === filterValueId)
-            mutatedList = mutatedList.filter(e => filteredWorkGroupsBySelectedLocation.some(w => w.id === e.workgroupId));
+            clonedList = clonedList.filter(e => filteredWorkGroupsBySelectedLocation.some(w => w.id === e.workgroupId));
         }
           
         if (filterBy === filter.WORKGROUP)
-            mutatedList = mutatedList.filter(e => e.workgroupId === filterValueId);
+            clonedList = clonedList.filter(e => e.workgroupId === filterValueId);
         
-        return showInactiveEmployees ? mutatedList.filter(e => e.isActive) : mutatedList;
+        return showInactiveEmployees ? clonedList.filter(e => e.isActive) : clonedList;
     }
 
 

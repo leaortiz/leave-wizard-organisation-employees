@@ -1,5 +1,5 @@
 export const sort = {
-    NAME: "firstName",
+    NAME: "lastName",
     ROLE: "role",
     WORKGROUP: "workgroupName",
     DEFAULT: "default"
