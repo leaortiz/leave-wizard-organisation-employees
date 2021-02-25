@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { columns } from '../../constants'
+import './EmployeesTableRow'
 
 export class EmployeesTableRow extends React.Component {
     constructor(props) {
@@ -27,7 +28,7 @@ export class EmployeesTableRow extends React.Component {
             <>
                 {
                     employees.length === 0 ?
-                        <tr><td colSpan={columns.length} style={{ textAlign: "center" }}>There are no employees to show.</td></tr> :
+                        <tr><td colSpan={columns.length} className='align-center'>There are no employees to show.</td></tr> :
 
                         employees.map((e, index) =>
                             <tr key={`tr-${index}`}>

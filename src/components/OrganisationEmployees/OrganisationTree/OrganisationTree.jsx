@@ -2,6 +2,7 @@ import React from 'react';
 import { Label, Panel } from 'react-bootstrap';
 import '../OrganisationEmployees.css';
 import LocationTab from './LocationTab'
+import './OrganisationTree.scss'
 
 
 export class OrganisationTree extends React.Component {
@@ -31,7 +32,7 @@ export class OrganisationTree extends React.Component {
             ));
     }
 
-    isSelectedStyle = () => this.state.selectedTreeId === 0 ? { backgroundColor: "#00ABD4", color: "white", } : {backgroundColor: "#f5f5f5" };
+    isSelectedStyle = () => this.state.selectedTreeId === 0 ? 'lw-panel-group-selected' : 'lw-bg-grey';
 
     resetFilters = () => {
         this.props.resetfilterValueIds()
@@ -41,7 +42,7 @@ export class OrganisationTree extends React.Component {
     render() {
         return (
             <div>
-                <h3 style={{ marginBottom: "2rem", color: "#00ABD4", cursor: "pointer" }}>
+                <h3 className='lw-tree-title'>
                     <Label
                         className="lw-bg-light-blue">
                         {this.props.name}
@@ -50,9 +51,8 @@ export class OrganisationTree extends React.Component {
 
                 {this.tabs()}
                     <Panel
-                        className="company-detail-btn-text"
+                        className={`${this.isSelectedStyle()} company-detail-btn-text`}
                         onClick={this.resetFilters}
-                        style={this.isSelectedStyle()}
                     >
                         Show all
                     </Panel>

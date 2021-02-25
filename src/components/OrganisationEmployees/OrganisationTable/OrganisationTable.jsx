@@ -17,17 +17,21 @@ export default class OrganisationTable extends React.Component {
         let showInactiveEmployees = this.state.showInactiveEmployees;
         return (
             <>
-                <Table striped bordered condensed hover responsive>
-                    <EmployeesTableHeader {...this.props} />
-                    <EmployeesTableBody {...this.props} showInactiveEmployees={showInactiveEmployees} />
-                </Table>
-                <div style={{ float: "right" }}>
+                   <div style={{ float: "inline", marginBottom:'1rem', marginLeft:'78%' }}>
+                  
                     <Checkbox
                         checked={!showInactiveEmployees}
                         onChange={() => this.handleChange("showInactiveEmployees", !showInactiveEmployees)}
                         style={{ display: "inline" }}
                     /> show inactive employees
+                    
                 </div>
+                
+                <Table striped bordered condensed hover responsive>
+                    <EmployeesTableHeader {...this.props} />
+                    <EmployeesTableBody {...this.props} showInactiveEmployees={showInactiveEmployees} />
+                </Table>
+
             </>
         );
     }

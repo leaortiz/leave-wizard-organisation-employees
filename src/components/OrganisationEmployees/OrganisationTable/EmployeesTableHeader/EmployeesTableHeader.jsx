@@ -1,6 +1,7 @@
 import React from 'react';
 import { columns, sortHelper } from '../../constants'
 import { FcAlphabeticalSortingAz } from "react-icons/fc";
+import './EmployeesTableHeader.scss';
 
 
 
@@ -17,7 +18,7 @@ export class EmployeesTableHeader extends React.Component {
         if (column.datafield === "name" || column.datafield === "role" || column.datafield === "workgroupName")
             return <th key={column.datafield}>{column.caption}
                 <FcAlphabeticalSortingAz
-                    style={{ float: "right", cursor: "pointer" }}
+                    className='lw-sort-icon'
                     onClick={() => this.props.handleSortByChange(sortHelper(column.datafield))}
                 />
             </th>

@@ -61,3 +61,13 @@
   padding: 0;
 }
 
+
+.lw-panel-group-selected {
+  background-color: #00ABD4!important; 
+  color: white;
+}
+
+.align-center{
+  text-align: center;
+}
+
